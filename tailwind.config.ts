@@ -15,6 +15,7 @@ const config: Config = {
       },
     },
     colors: {
+      ligthBackground: "#f2ece7",
       background: "#ebded5",
       black: "#151817",
       red: "#b61737",

@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 body {
-  background: #ebded5;
   min-height: 100vh;
 }
 
@@ -15,4 +14,8 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.light-background {
+  background-color: #ebded5 !important;
 }
