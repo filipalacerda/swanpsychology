@@ -3,10 +3,10 @@ import profilePicture from "../assets/rita.jpg";
 
 const About = () => {
   return (
-    <section className="p-24 flex mt-20 gap-20">
+    <section className="md:p-24 p-12 flex md:mt-20 mt-10 gap-20 md:flex-row flex-col">
       <div className="w-4/5 leading-14">
-        <h2 className="text-4xl font-bold">I&lsquo;m Rita!</h2>
-        <h3 className="mt-10 font-md text-3xl">
+        <h2 className="md:text-4xl text-2xl font-bold">I&lsquo;m Rita!</h2>
+        <h3 className="mt-10 font-md md:text-3xl text-lg">
           Maybe you want to launch a business. Maybe you want to turn a hobby
           into something more. Or maybe you have a creative project to share
           with the world. Whatever it is, the way you tell your story online can

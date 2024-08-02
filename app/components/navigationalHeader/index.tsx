@@ -23,7 +23,7 @@ const NavigationalHeader = () => {
     { id: 2, text: "Services", href: "/services" },
     { id: 3, text: "Appointments", href: "/appointments" },
     { id: 4, text: "Contact", href: "/contact" },
-    { id: 5, text: "FAQs", href: "faqs" },
+    { id: 5, text: "FAQs", href: "/faqs" },
   ];
 
   return (
