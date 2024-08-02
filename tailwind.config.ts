@@ -23,6 +23,7 @@ const config: Config = {
       tumeric: "#ceb04b",
       fountainBlue: "#54bec6",
       green: "#90c2c2",
+      white: "#ffffff",
     },
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
