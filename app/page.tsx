@@ -72,7 +72,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="mt-14 py-16 flex flex-col items-center text-lg">
+      <section className="mt-14 py-16 flex flex-col items-center text-lg text-center">
         <p className="leading-10 font-light">
           Learning more about your neurotype is a vital step for self-acceptance
           and compassion, but it is also about communicating your needs better
@@ -97,7 +97,7 @@ export default function Home() {
           Our services
         </Link>
       </section>
-      <section className="mt-14 flex items-center bg-ligthBackground w-full p-20 justify-around flex-col">
+      <section className="mt-14 flex items-center bg-ligthBackground w-full p-20 justify-around flex-col text-center">
         <p className="leading-10 font-extralight text-2xl">
           There is so much to know about these topics.
         </p>
@@ -114,7 +114,7 @@ export default function Home() {
         </Link>
       </section>
 
-      <section className="mt-14 py-16 flex flex-col items-center text-md">
+      <section className="mt-14 py-16 flex flex-col items-center text-md text-center">
         <p className="leading-10 mb-4 font-bold text-5xl">
           We&lsquo;d love to work with you!
         </p>
