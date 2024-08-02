@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section>
+        <section className="flex flex-col h-screen justify-between">
           <NavigationalHeader />
-          <section className="flex p-5 h-screen">{children}</section>
+          <section className="flex p-5 h-screen flex-1">{children}</section>
           <Footer />
         </section>
       </body>
