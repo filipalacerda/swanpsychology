@@ -44,7 +44,7 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <section className="mt-14 flex items-center bg-ligthBackground w-full p-20 justify-around md:flex-row flex-col">
+      <section className="mt-14 flex items-center bg-ligthBackground w-full p-20 justify-around md:flex-row flex-col gap-10">
         <div>
           <Image
             src={profilePicture}
@@ -55,11 +55,11 @@ export default function Home() {
             priority={true}
           />
         </div>
-        <div className="flex flex-col items-center ">
-          <h3 className="md:text-3xl font-bold italic">
+        <div className="flex flex-col items-center text-center">
+          <h3 className="md:text-3xl text-lg font-bold italic">
             It takes one to truly understand one.
           </h3>
-          <p className="mt-4 text-sm">
+          <p className="mt-4 text-lg">
             I was a diagnostician for years before being diagnosed as AuDHD
             myself.
           </p>
@@ -72,21 +72,21 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="mt-14 py-16 flex flex-col items-center text-lg text-center">
-        <p className="leading-10 font-light">
+      <section className="mt-14 py-16 md:px-0 px-12 flex flex-col items-center text-lg md:text-2xl text-center">
+        <p className="leading-10 font-light mb-2">
           Learning more about your neurotype is a vital step for self-acceptance
           and compassion, but it is also about communicating your needs better
           to others.
         </p>
-        <p className="leading-10 font-light">
+        <p className="leading-10 font-light mb-2">
           If you&lsquo;re pregnant, I can help with birth planning to take into
           account sensory and communication needs.
         </p>
-        <p className="leading-10 font-light">
+        <p className="leading-10 font-light mb-2">
           If you&lsquo;re already a parent, how does meeting your needs allow
           you to better show up for your family?
         </p>
-        <p className="leading-10 font-light">
+        <p className="leading-10 font-light mb-2">
           If you&lsquo;re already diagnosed or are happy being self-diagnosed, I
           can help you in the process of discovery of your authentic self.
         </p>
@@ -115,7 +115,7 @@ export default function Home() {
       </section>
 
       <section className="mt-14 py-16 flex flex-col items-center text-md text-center">
-        <p className="leading-10 mb-4 font-bold text-5xl">
+        <p className="leading-10 mb-4 font-bold text-5xl leading-10">
           We&lsquo;d love to work with you!
         </p>
         <Link
