@@ -19,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavigationalHeader />
-        {children}
+        <section>
+          <NavigationalHeader />
+          <section className="flex p-5">{children}</section>
+        </section>
       </body>
     </html>
   );
