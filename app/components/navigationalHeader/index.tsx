@@ -49,7 +49,7 @@ const NavigationalHeader = () => {
         </ul>
 
         {/* Mobile Navigation Icon */}
-        <div className="block md:hidden">
+        <div className="block md:hidden text-[#151817]">
           {!nav && (
             <button onClick={handleNav}>
               <AiOutlineMenu size={20} aria-label="Open navigation menu" />
@@ -74,7 +74,7 @@ const NavigationalHeader = () => {
               <Link href="/">Swan Psychology</Link>
             </h1>
 
-            <button onClick={handleNav} className="p-2.5">
+            <button onClick={handleNav} className="p-2.5 text-[#151817]">
               <AiOutlineClose size={20} aria-label="Close Navigation menu" />
             </button>
             <div className="blick md:hidden">{nav && <button></button>}</div>
