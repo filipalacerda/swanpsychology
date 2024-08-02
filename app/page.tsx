@@ -44,7 +44,7 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <section className="mt-14 flex items-center bg-ligthBackground w-full p-16 justify-around md:flex-row flex-col">
+      <section className="mt-14 flex items-center bg-ligthBackground w-full p-20 justify-around md:flex-row flex-col">
         <div>
           <Image
             src={profilePicture}
@@ -72,29 +72,57 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="mt-14 py-16 flex flex-col items-center text-md">
+      <section className="mt-14 py-16 flex flex-col items-center text-lg">
         <p className="leading-10 font-light">
           Learning more about your neurotype is a vital step for self-acceptance
           and compassion, but it is also about communicating your needs better
           to others.
         </p>
         <p className="leading-10 font-light">
-          If you’re pregnant, I can help with birth planning to take into
+          If you&lsquo;re pregnant, I can help with birth planning to take into
           account sensory and communication needs.
         </p>
         <p className="leading-10 font-light">
-          If you’re already a parent, how does meeting your needs allow you to
-          better show up for your family?
+          If you&lsquo;re already a parent, how does meeting your needs allow
+          you to better show up for your family?
         </p>
         <p className="leading-10 font-light">
-          If you’re already diagnosed or are happy being self-diagnosed, I can
-          help you in the process of discovery of your authentic self.
+          If you&lsquo;re already diagnosed or are happy being self-diagnosed, I
+          can help you in the process of discovery of your authentic self.
         </p>
         <Link
           href="/services"
           className="mt-5 bg-white p-4 rounded-3xl text-center md:w-60 w-40"
         >
           Our services
+        </Link>
+      </section>
+      <section className="mt-14 flex items-center bg-ligthBackground w-full p-20 justify-around flex-col">
+        <p className="leading-10 font-extralight text-2xl">
+          There is so much to know about these topics.
+        </p>
+        <p className="leading-10 font-extralight text-2xl">
+          I was a diagnostician for years before being diagnosed as AuDHD
+          myself.
+        </p>
+
+        <Link
+          href="/faqs"
+          className="mt-5 bg-red p-4 rounded-3xl text-white text-center md:w-60 w-40"
+        >
+          FAQs
+        </Link>
+      </section>
+
+      <section className="mt-14 py-16 flex flex-col items-center text-md">
+        <p className="leading-10 mb-4 font-bold text-5xl">
+          We&lsquo;d love to work with you!
+        </p>
+        <Link
+          href="/contact"
+          className="mt-10 bg-white p-4 rounded-3xl text-center md:w-60 w-40"
+        >
+          Contact us
         </Link>
       </section>
     </main>
