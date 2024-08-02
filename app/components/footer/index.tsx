@@ -9,7 +9,7 @@ const Footer = () => {
   const currentPath = usePathname();
 
   return (
-    <footer className="absolute left-0 right-0 bottom-0 bg-red text-white p-5 font-light text-sm">
+    <footer className="left-0 right-0 bottom-0 bg-red text-white p-5 font-light text-sm">
       <section className="flex justify-between">
         <section>
           <ul>

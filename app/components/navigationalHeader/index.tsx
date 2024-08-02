@@ -27,8 +27,8 @@ const NavigationalHeader = () => {
   ];
 
   return (
-    <div className="sticky left-0 right-0">
-      <nav className="flex justify-between items-center h-24 mx-auto px-4 text-white font-roboto">
+    <div className="fixed left-0 right-0">
+      <nav className="flex justify-between items-center h-24 mx-auto px-4 text-white font-roboto bg-[#ebded5]">
         {/* Logo */}
         <h1 className="w-full text-3xl font-bold text-[#151817]">
           <Link href="/">Swan Psychology</Link>

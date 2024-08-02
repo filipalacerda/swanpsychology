@@ -20,11 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section className="text-[#151817]">
+        <section>
           <NavigationalHeader />
-          <section className="flex p-5">{children}</section>
+          <section className="flex p-5 h-screen">{children}</section>
+          <Footer />
         </section>
-        <Footer />
       </body>
     </html>
   );
