@@ -22,10 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <section className="flex flex-col h-screen justify-between bg-background">
           <NavigationalHeader />
-          <section className="flex pt-5 h-screen flex-1 overflow-auto">
+          <section className="flex pt-5 h-screen flex-1 overflow-auto flex-col">
             {children}
+            <Footer />
           </section>
-          <Footer />
         </section>
       </body>
     </html>

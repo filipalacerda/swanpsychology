@@ -5,7 +5,6 @@ const PrivacyPolicy = () => {
         <h2 className="text-2xl font-bold w-60">Privacy Policy</h2>
       </div>
       <div className="leading-10 text-md font-light">
-        <p>Last updated: August 02, 2024</p>
         <p>
           This Privacy Policy describes Our policies and procedures on the
           collection, use and disclosure of Your information when You use the
