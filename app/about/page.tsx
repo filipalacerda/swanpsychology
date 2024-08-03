@@ -3,7 +3,7 @@ import profilePicture from "../assets/rita.jpg";
 
 const About = () => {
   return (
-    <section className="md:p-24 p-12 flex md:mt-20 mt-10 gap-20 md:flex-row flex-col">
+    <section className="md:p-24 p-12 flex md:mt-20 mt-10 md:gap-20 gap-10 md:flex-row flex-col">
       <div className="w-4/5 leading-14">
         <h2 className="md:text-4xl text-2xl font-bold">I&lsquo;m Rita!</h2>
         <h3 className="mt-10 font-md md:text-3xl text-lg">
