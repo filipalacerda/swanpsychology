@@ -39,8 +39,8 @@ const NavigationalHeader = () => {
           {navItems.map((item) => (
             <li
               key={item.id}
-              className={`p-4 m-2 cursor-pointer text-[#151817] text-nowrap font-light ${
-                currentPath === item.href && "underline"
+              className={`p-4 m-2 cursor-pointer text-[#151817] text-nowrap font-light hover:text-red ${
+                currentPath === item.href && "underline text-red font-semibold"
               }`}
             >
               <Link href={item.href}>{item.text}</Link>
@@ -84,8 +84,8 @@ const NavigationalHeader = () => {
           {navItems.map((item) => (
             <li
               key={item.id}
-              className={`p-4 duration-300 hover:text-black cursor-pointer text-[#151817] font-light ${
-                currentPath === item.href && "underline"
+              className={`p-4 duration-300 hover:text-black cursor-pointer text-[#151817] font-light hover:text-red ${
+                currentPath === item.href && "underline text-red font-semibold"
               }`}
               onClick={() => hideNav()}
             >
