@@ -20,12 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section className="flex flex-col h-screen justify-between bg-background">
+        <section className="flex flex-col min-h-screen justify-between bg-background">
           <NavigationalHeader />
-          <section className="flex pt-5 h-screen flex-1 overflow-auto flex-col">
+          <section className="flex pt-5 flex-1 overflow-auto">
             {children}
-            <Footer />
           </section>
+          <Footer />
         </section>
       </body>
     </html>
