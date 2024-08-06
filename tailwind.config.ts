@@ -25,6 +25,7 @@ const config: Config = {
       fountainBlue: "#54bec6",
       green: "#90c2c2",
       white: "#ffffff",
+      error: "#cf0303",
     },
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
