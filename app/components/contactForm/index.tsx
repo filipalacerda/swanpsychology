@@ -79,20 +79,25 @@ const ContactForm = () => {
     const isEmailValid = isValidEmail(formJson.email as string);
     const isValidMessage = isMessageValid(formJson.message as string);
 
-    if (isEmailValid && isValidFirstName && isValidLastName) {
+    if (isEmailValid && isValidFirstName && isValidLastName && isValidMessage) {
       // Submit form
-      console.log(formJson);
-      setIsLoading(true);
     }
   };
   return (
     <div>
       {isLoading && (
         <div className="flex justify-center flex-col">
-          <p className="text-3xl m-auto">We are sending the data</p>
+          <p className="text-3xl m-auto">We are sending the data...</p>
           <div className="m-auto mt-10">
             <FaSpinner size={50} className="loading-icon " />
           </div>
+        </div>
+      )}
+      {hasError && (
+        <div className="flex mb-10">
+          <p className="text-lg text-error">
+            An error occured while submitting the form. Please try again!
+          </p>
         </div>
       )}
       {!isLoading && (
