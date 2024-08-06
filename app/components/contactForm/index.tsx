@@ -65,7 +65,7 @@ const ContactForm = () => {
     }
   };
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // handle form submission
 
@@ -81,8 +81,31 @@ const ContactForm = () => {
 
     if (isEmailValid && isValidFirstName && isValidLastName && isValidMessage) {
       // Submit form
+      setIsLoading(true);
+
+      try {
+        const response = await fetch("/api", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to submit the data. Please try again.");
+        }
+
+        // Handle response if necessary
+        const data = await response.json();
+        // ...
+      } catch (error) {
+        // Capture the error message to display to the user
+        setHasError(true);
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
+
   return (
     <div>
       {isLoading && (
