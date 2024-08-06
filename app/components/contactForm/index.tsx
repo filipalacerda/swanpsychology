@@ -1,11 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { FaSpinner } from "react-icons/fa6";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState<{
-    [k: string]: FormDataEntryValue;
-  }>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const [firstNameError, setFirstNameError] = useState<string | null>(null);
   const [lastNameError, setLastNameError] = useState<string | null>(null);
@@ -80,73 +80,87 @@ const ContactForm = () => {
     const isValidMessage = isMessageValid(formJson.message as string);
 
     if (isEmailValid && isValidFirstName && isValidLastName) {
+      // Submit form
       console.log(formJson);
+      setIsLoading(true);
     }
   };
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
-      <fieldset className="flex mb-6">
-        <legend className="flex items-center mb-4">
-          <div className="mr-1">Name:</div>
-          <span className="font-light text-sm">(required)</span>
-        </legend>
-        <div className="flex flex-col mr-4 md:w-6/12">
-          <label className="mb-1">First name:</label>
-          <input
-            type="text"
-            name="firstName"
-            className="rounded-md min-h-8 p-0.5"
-          />
-          <p className="text-error text-sm mt-1">{firstNameError}</p>
-        </div>
-        <div className="flex flex-col md:w-6/12">
-          <label className="mb-1">Last name:</label>
-          <input
-            type="text"
-            name="lastName"
-            className="rounded-md min-h-8 p-0.5"
-          />
-          <p className="text-error text-sm mt-1">{lastNameError}</p>
-        </div>
-      </fieldset>
-      <fieldset className="flex flex-col mb-4">
-        <label className="mb-1">
-          <div>
-            <span className="mr-1">Email:</span>
-            <span className="font-light text-sm">(required)</span>
+    <div>
+      {isLoading && (
+        <div className="flex justify-center flex-col">
+          <p className="text-3xl m-auto">We are sending the data</p>
+          <div className="m-auto mt-10">
+            <FaSpinner size={50} className="loading-icon " />
           </div>
-        </label>
-        <input
-          type="email"
-          name="email"
-          className="rounded-md md:w-92 min-h-8 p-0.5"
-        />
-        <p className="text-error text-sm mt-1">{emailError}</p>
-      </fieldset>
-      <fieldset className="flex flex-col  mb-4">
-        <label className="mb-1">
-          <div>
-            <span className="mr-1">Message:</span>
-            <span className="font-light text-sm">(required)</span>
+        </div>
+      )}
+      {!isLoading && (
+        <form onSubmit={(e) => onSubmit(e)}>
+          <fieldset className="flex mb-4 md:flex-row flex-col">
+            <legend className="flex items-center mb-4">
+              <div className="mr-1">Name:</div>
+              <span className="font-light text-sm">(required)</span>
+            </legend>
+            <div className="flex flex-col md:mr-4 md:w-6/12 md:mb-0 mb-4">
+              <label className="mb-1">First name:</label>
+              <input
+                type="text"
+                name="firstName"
+                className="rounded-md min-h-8 p-1.5 font-light"
+              />
+              <p className="text-error text-sm mt-1">{firstNameError}</p>
+            </div>
+            <div className="flex flex-col md:w-6/12">
+              <label className="mb-1">Last name:</label>
+              <input
+                type="text"
+                name="lastName"
+                className="rounded-md min-h-8 p-1.5 font-light"
+              />
+              <p className="text-error text-sm mt-1">{lastNameError}</p>
+            </div>
+          </fieldset>
+          <fieldset className="flex flex-col mb-4">
+            <label className="mb-1">
+              <div>
+                <span className="mr-1">Email:</span>
+                <span className="font-light text-sm">(required)</span>
+              </div>
+            </label>
+            <input
+              type="email"
+              name="email"
+              className="rounded-md md:w-92 min-h-8 p-1.5 font-light"
+            />
+            <p className="text-error text-sm mt-1">{emailError}</p>
+          </fieldset>
+          <fieldset className="flex flex-col  mb-4">
+            <label className="mb-1">
+              <div>
+                <span className="mr-1">Message:</span>
+                <span className="font-light text-sm">(required)</span>
+              </div>
+            </label>
+            <textarea
+              name="message"
+              className="rounded-md min-h-8 p-1.5 font-light"
+              rows={5}
+              cols={30}
+            />
+            <p className="text-error text-sm mt-1">{messageError}</p>
+          </fieldset>
+          <div className="text-center md:text-start">
+            <button
+              type="submit"
+              className="mt-10 bg-white p-4 rounded-3xl text-center w-40"
+            >
+              Send
+            </button>
           </div>
-        </label>
-        <textarea
-          name="message"
-          className="rounded-md min-h-8 p-0.5"
-          rows={5}
-          cols={30}
-        />
-        <p className="text-error text-sm mt-1">{messageError}</p>
-      </fieldset>
-      <div>
-        <button
-          type="submit"
-          className="mt-10 bg-white p-4 rounded-3xl text-center w-40"
-        >
-          Send
-        </button>
-      </div>
-    </form>
+        </form>
+      )}
+    </div>
   );
 };
 

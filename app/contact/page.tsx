@@ -5,7 +5,7 @@ const Contact = () => {
       <div className="md:w-96">
         <h2 className="text-3xl font-bold md:w-96">Contact us</h2>
       </div>
-      <div className="w-7/12">
+      <div className="md:w-7/12">
         <ContactForm />
       </div>
     </section>
