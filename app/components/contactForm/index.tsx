@@ -67,7 +67,6 @@ const ContactForm = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // handle form submission
 
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
@@ -92,14 +91,8 @@ const ContactForm = () => {
         if (!response.ok) {
           throw new Error("Failed to submit the data. Please try again.");
         }
-
-        // Handle response if necessary
-        const data = await response.json();
-        // ...
       } catch (error) {
-        // Capture the error message to display to the user
         setHasError(true);
-        console.error(error);
       } finally {
         setIsLoading(false);
       }
