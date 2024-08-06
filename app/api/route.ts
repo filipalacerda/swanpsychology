@@ -8,7 +8,6 @@ export async function POST(request: { formData: () => any }) {
   const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
   const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
 
-  console.log("dealing with request");
   const formData = await request.formData();
   const name = formData.get("firstName");
   const lastName = formData.get("lastName");
@@ -47,7 +46,6 @@ export async function POST(request: { formData: () => any }) {
       status: 200,
     });
   } catch (error) {
-    console.log(error);
     return NextResponse.json({
       message: "COULD NOT SEND MESSAGE",
       status: 500,
