@@ -8,8 +8,10 @@ import Footer from "./components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Swan Pshychology",
-  description: "Swan Pshychology website. Description goes here",
+  title: "Swan Psychology",
+  description: "Swan Psychology website. Description goes here",
+  viewport: "width=device-width, initial-scale=1",
+  keywords: "Psychology, neurodivergent, AuDHD",
 };
 
 export default function RootLayout({
