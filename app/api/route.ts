@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
 // Handles POST requests to /api
 
-export async function POST(request: { formData: () => any }) {
+export async function POST(request: Request | NextRequest) {
   const username = process.env.NEXT_PUBLIC_BURNER_USERNAME;
   const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
   const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
