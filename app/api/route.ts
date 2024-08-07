@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
 // Handles POST requests to /api
@@ -16,12 +16,10 @@ export async function POST(request: { formData: () => any }) {
 
   // create transporter object
   const transporter = nodemailer.createTransport({
-    host: "smtp.protonmail.ch",
-    port: 587,
-    tls: {
-      ciphers: "SSLv3",
-      rejectUnauthorized: false,
-    },
+    service: "Gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
       user: username,
       pass: password,
@@ -29,26 +27,38 @@ export async function POST(request: { formData: () => any }) {
   });
 
   try {
-    const mail = await transporter.sendMail({
-      from: username,
-      to: myEmail,
-      replyTo: email,
-      subject: `Website activity from ${email}`,
-      html: `
+    const mail = await transporter.sendMail(
+      {
+        from: username,
+        to: myEmail,
+        replyTo: email,
+        subject: `Website activity from ${email}`,
+        html: `
             <p>Name: ${name} ${lastName} </p>
             <p>Email: ${email} </p>
             <p>Message: ${message} </p>
             `,
-    });
+      },
+      (error: any, info: { response: any }) => {
+        if (error) {
+          console.log("Error sending email", error);
+        } else {
+          console.log("Email sent", info.response);
+        }
+      }
+    );
 
-    return NextResponse.json({
-      message: "Success: email was sent",
-      status: 200,
-    });
+    return NextResponse.json(
+      {
+        message: "Success: email was sent",
+      },
+      { status: 200 }
+    );
   } catch (error) {
-    return NextResponse.json({
-      message: "COULD NOT SEND MESSAGE",
-      status: 500,
-    });
+    console.log(error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

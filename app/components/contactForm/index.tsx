@@ -124,26 +124,32 @@ const ContactForm = () => {
               <span className="font-light text-sm">(required)</span>
             </legend>
             <div className="flex flex-col md:mr-4 md:w-6/12 md:mb-0 mb-4">
-              <label className="mb-1">First name:</label>
+              <label htmlFor="firstName" className="mb-1">
+                First name:
+              </label>
               <input
                 type="text"
+                id="firstName"
                 name="firstName"
                 className="rounded-md min-h-8 p-1.5 font-light"
               />
               <p className="text-error text-sm mt-1">{firstNameError}</p>
             </div>
             <div className="flex flex-col md:w-6/12">
-              <label className="mb-1">Last name:</label>
+              <label htmlFor="lastName" className="mb-1">
+                Last name:
+              </label>
               <input
                 type="text"
                 name="lastName"
+                id="lastName"
                 className="rounded-md min-h-8 p-1.5 font-light"
               />
               <p className="text-error text-sm mt-1">{lastNameError}</p>
             </div>
           </fieldset>
           <fieldset className="flex flex-col mb-4">
-            <label className="mb-1">
+            <label className="mb-1" htmlFor="email">
               <div>
                 <span className="mr-1">Email:</span>
                 <span className="font-light text-sm">(required)</span>
@@ -152,12 +158,13 @@ const ContactForm = () => {
             <input
               type="email"
               name="email"
+              id="email"
               className="rounded-md md:w-92 min-h-8 p-1.5 font-light"
             />
             <p className="text-error text-sm mt-1">{emailError}</p>
           </fieldset>
           <fieldset className="flex flex-col  mb-4">
-            <label className="mb-1">
+            <label className="mb-1" htmlFor="message">
               <div>
                 <span className="mr-1">Message:</span>
                 <span className="font-light text-sm">(required)</span>
@@ -165,6 +172,7 @@ const ContactForm = () => {
             </label>
             <textarea
               name="message"
+              id="message"
               className="rounded-md min-h-8 p-1.5 font-light"
               rows={5}
               cols={30}
