@@ -20,6 +20,7 @@ const ContactForm = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
+  const [onSuccess, setOnSuccess] = useState<boolean>(false);
 
   const [firstNameError, setFirstNameError] = useState<string | null>(null);
   const [lastNameError, setLastNameError] = useState<string | null>(null);
@@ -95,6 +96,7 @@ const ContactForm = () => {
     if (isEmailValid && isValidFirstName && isValidLastName && isValidMessage) {
       setIsLoading(true);
       setHasError(false);
+      setOnSuccess(false);
 
       try {
         const response = await fetch("/api", {
@@ -109,6 +111,8 @@ const ContactForm = () => {
         setHasError(true);
       } finally {
         setIsLoading(false);
+
+        setOnSuccess(true);
 
         setFormValues({
           firstName: "",
@@ -128,6 +132,14 @@ const ContactForm = () => {
           <div className="m-auto mt-10">
             <FaSpinner size={50} className="loading-icon " />
           </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="flex mb-10">
+          <p className="text-lg text-success">
+            Your data was successfully submitted! We&lsquo;ll get back to you as
+            soon as possible
+          </p>
         </div>
       )}
       {hasError && (
