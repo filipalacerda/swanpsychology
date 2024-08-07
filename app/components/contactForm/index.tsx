@@ -3,7 +3,21 @@
 import { FormEvent, useState } from "react";
 import { FaSpinner } from "react-icons/fa6";
 
+type FormValuesType = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+};
+
 const ContactForm = () => {
+  const [formValues, setFormValues] = useState<FormValuesType>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
 
@@ -132,6 +146,13 @@ const ContactForm = () => {
                 id="firstName"
                 name="firstName"
                 className="rounded-md min-h-8 p-1.5 font-light"
+                value={formValues.firstName}
+                onChange={(e) =>
+                  setFormValues((prev) => ({
+                    ...prev,
+                    firstName: e.target.value,
+                  }))
+                }
               />
               <p className="text-error text-sm mt-1">{firstNameError}</p>
             </div>
@@ -144,6 +165,13 @@ const ContactForm = () => {
                 name="lastName"
                 id="lastName"
                 className="rounded-md min-h-8 p-1.5 font-light"
+                value={formValues.lastName}
+                onChange={(e) =>
+                  setFormValues((prev) => ({
+                    ...prev,
+                    lastName: e.target.value,
+                  }))
+                }
               />
               <p className="text-error text-sm mt-1">{lastNameError}</p>
             </div>
@@ -160,6 +188,13 @@ const ContactForm = () => {
               name="email"
               id="email"
               className="rounded-md md:w-92 min-h-8 p-1.5 font-light"
+              value={formValues.email}
+              onChange={(e) =>
+                setFormValues((prev) => ({
+                  ...prev,
+                  email: e.target.value,
+                }))
+              }
             />
             <p className="text-error text-sm mt-1">{emailError}</p>
           </fieldset>
@@ -176,6 +211,13 @@ const ContactForm = () => {
               className="rounded-md min-h-8 p-1.5 font-light"
               rows={5}
               cols={30}
+              value={formValues.message}
+              onChange={(e) =>
+                setFormValues((prev) => ({
+                  ...prev,
+                  message: e.target.value,
+                }))
+              }
             />
             <p className="text-error text-sm mt-1">{messageError}</p>
           </fieldset>
