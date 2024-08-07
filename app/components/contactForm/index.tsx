@@ -93,8 +93,8 @@ const ContactForm = () => {
     const isValidMessage = isMessageValid(formJson.message as string);
 
     if (isEmailValid && isValidFirstName && isValidLastName && isValidMessage) {
-      // Submit form
       setIsLoading(true);
+      setHasError(false);
 
       try {
         const response = await fetch("/api", {
@@ -109,6 +109,13 @@ const ContactForm = () => {
         setHasError(true);
       } finally {
         setIsLoading(false);
+
+        setFormValues({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
       }
     }
   };
