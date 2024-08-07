@@ -106,13 +106,13 @@ const ContactForm = () => {
 
         if (!response.ok) {
           throw new Error("Failed to submit the data. Please try again.");
+        } else {
+          setOnSuccess(true);
         }
       } catch (error) {
         setHasError(true);
       } finally {
         setIsLoading(false);
-
-        setOnSuccess(true);
 
         setFormValues({
           firstName: "",

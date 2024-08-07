@@ -27,26 +27,17 @@ export async function POST(request: Request | NextRequest) {
   });
 
   try {
-    const mail = await transporter.sendMail(
-      {
-        from: username,
-        to: myEmail,
-        replyTo: email,
-        subject: `Website activity from ${email}`,
-        html: `
+    const mail = await transporter.sendMail({
+      from: username,
+      to: myEmail,
+      replyTo: email,
+      subject: `Website activity from ${email}`,
+      html: `
             <p>Name: ${name} ${lastName} </p>
             <p>Email: ${email} </p>
             <p>Message: ${message} </p>
             `,
-      },
-      (error: any, info: { response: any }) => {
-        if (error) {
-          console.log("Error sending email", error);
-        } else {
-          console.log("Email sent", info.response);
-        }
-      }
-    );
+    });
 
     return NextResponse.json(
       {
@@ -56,9 +47,6 @@ export async function POST(request: Request | NextRequest) {
     );
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }
