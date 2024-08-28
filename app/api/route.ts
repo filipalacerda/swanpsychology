@@ -27,16 +27,28 @@ export async function POST(request: Request | NextRequest) {
   });
 
   try {
-    const mail = await transporter.sendMail({
-      from: username,
-      to: myEmail,
-      replyTo: email,
-      subject: `Website activity from ${email}`,
-      html: `
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(
+        {
+          from: username,
+          to: myEmail,
+          replyTo: email,
+          subject: `Website activity from ${email}`,
+          html: `
             <p>Name: ${name} ${lastName} </p>
             <p>Email: ${email} </p>
             <p>Message: ${message} </p>
             `,
+        },
+        (err: any, info: unknown) => {
+          if (err) {
+            console.error(err);
+            reject(err);
+          } else {
+            resolve(info);
+          }
+        }
+      );
     });
 
     return NextResponse.json(
